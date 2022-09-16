@@ -2,7 +2,7 @@ const { Messages } = require("../db/messagesModel");
 const { GuestBookError, ValidationError } = require("../helpers/errors");
 
 const listMessages = async () => {
-  const messages = await Messages.find({}).sort({ time: "desc" });
+  const messages = await Messages.find({}).sort({ time: -1 });
   return messages;
 };
 
@@ -11,7 +11,10 @@ const addMessage = async (body) => {
     throw new ValidationError("missing required field");
   }
 
-  const message = new Messages({ ...body, time: new Date() });
+  const message = new Messages({
+    ...body,
+    time: new Date(),
+  });
   await message.save();
   return message;
 };

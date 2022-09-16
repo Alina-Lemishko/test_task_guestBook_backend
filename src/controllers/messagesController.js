@@ -4,7 +4,7 @@ const {
   removeMessage,
 } = require("../services/messagesService");
 
-const listMessagesController = async (req, res, next) => {
+const listMessagesController = async (_, res) => {
   try {
     const data = await listMessages();
     return res.json({

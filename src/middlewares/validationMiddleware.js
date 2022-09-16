@@ -8,7 +8,7 @@ module.exports = {
         .min(2)
         .max(20)
         .required(),
-      message: Joi.string().min(1).max(400).required(),
+      message: Joi.string().min(4).max(400).required(),
     });
     const validationResult = schema.validate(req.body);
     if (validationResult.error) {
