@@ -26,7 +26,6 @@ const removeMessage = async (id) => {
   if (!messageById) {
     throw new GuestBookError("Not Found");
   }
-  console.log("messageId", messageId);
   await Messages.findOneAndRemove({ _id: messageId });
 };
 
