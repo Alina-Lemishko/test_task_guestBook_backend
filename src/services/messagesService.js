@@ -13,7 +13,7 @@ const addMessage = async (body) => {
 
   const message = new Messages({
     ...body,
-    time: new Date(),
+    time: Date.now(),
   });
   await message.save();
   return message;
